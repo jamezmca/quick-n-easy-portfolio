@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap&effect=3d-float|fire-animation|neon|anaglyph');
+/* replace css2 with css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --background-color: rgb(6, 23, 36);
+    --accent-color: #b7ee51;
+    --font-color: rgb(201, 235, 235);
+}
+
+html {
+    scrollbar-width: normal;
+    scrollbar-color: #777 #555;
+}
+
+html::-webkit-scrollbar {
+    width: 0;
+}
+
+#scroll-path {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 1vw;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+
+}
+
+#progress-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 1vw;
+    background: linear-gradient(to top, #1872bb, #00ff88);
+}
+
+#progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #1872bb, #00ff88);
+    filter: blur(20px);
+}
+
+#progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(10px);
+}
+
+/* html::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, rgb(120, 185, 228), rgb(0, 255, 195));
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, rgb(89, 131, 158), rgb(26, 126, 102));
+}
+
+html::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, #1e0629, #063d38);
+} */
+
+body {
+    min-height: 100vh;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: 'Space Mono', monospace;
+    color: var(--font-color);
+}
+
+h1 {
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-align: center;
+    /* filter: hue-rotate(120deg); */
+    filter: hue-rotate(50deg);
+}
+
+.header {
+    position: relative;
+    padding-bottom: 50px;
+    display: grid;
+    place-items: center;
+}
+
+.content-container {
+    flex-grow: 1;
+}
+
+.loader {
+    position: absolute;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(to top, var(--background-color) 40%, var(--accent-color));
+    border-radius: 50%;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loader::before {
+    content: '';
+    position: absolute;
+    background: var(--background-color);
+    inset: 5px 5px 0 0;
+    border-radius: 50%;
+}
+
+.loader::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: -5px;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 2px var(--accent-color),
+                0 0 8px var(--accent-color),
+                0 0 16px var(--accent-color),
+                0 0 32px var(--accent-color);
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer a {
+    position: relative;
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+    margin: 20px;
+    background: #fff;
+}
+
+.footer a:before,
+.footer a:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgb(209, 6, 6);
+    transition: 0.4s;
+}
+
+.footer a:nth-child(1):before,
+.footer a:nth-child(1):after {
+    background: linear-gradient(45deg, #00ccff, var(--background-color), var(--background-color), #d400d4)
+}
+
+.footer a:nth-child(2):before,
+.footer a:nth-child(2):after {
+    background: linear-gradient(45deg, #00ccff, var(--background-color), var(--background-color), #d400d4)
+}
+
+.footer a:nth-child(3):before,
+.footer a:nth-child(3):after {
+    background: linear-gradient(45deg, #00ccff, var(--background-color), var(--background-color), #d400d4)
+}
+
+.footer a:hover:before {
+    inset: -3px;
+    filter: blur(10px);
+}
+
+.footer a:hover:after {
+    inset: -3px;
+    backdrop-filter: blur(10px);
+}
+
+.footer a span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-color);
+    display: inline-block;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    font-size: 0.4em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--font-color);
+    border: 1px solid rgb(4, 4, 32);
+}
