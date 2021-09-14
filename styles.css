@@ -198,9 +198,17 @@ h1 {
     z-index: 10;
     display: grid;
     place-items: center;
-    font-size: 0.4em;
+    font-size: 2em;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--font-color);
     border: 1px solid rgb(4, 4, 32);
+    background: radial-gradient(#aaa, var(--background-color), var(--background-color))
+
 }
+
+.footer a span .fab {
+    color: white;
+    text-shadow: 0 0 2px white;
+}
+
