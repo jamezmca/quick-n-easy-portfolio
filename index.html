@@ -19,8 +19,22 @@
         <!-- <span class="loader" /> -->
     </header>
     <!-- going to have tabs for projects using glass template, about me, business card downloadable- make downloadable -->
-    <main class="content-container">
-
+    <main class="container">
+        <ul>
+            <li><a href="#">
+                    <i class="fas fa-igloo"></i>
+                </a>
+            </li>
+            <li><a href="#">
+                    <i class="fas fa-child"></i>
+                </a>
+            </li>
+            <li><a href="#">
+                    <i class="far fa-address-card"></i>
+                </a>
+            </li>
+            <div id="marker"></div>
+        </ul>
     </main>
 
     <!-- going to have cool buttons with highlighted socials inside -->
@@ -44,12 +58,40 @@
     </footer>
 </body>
 <script type="text/javascript">
+    //for the scroll bar
     let progress = document.getElementById('progress-bar')
     let totalHeight = document.body.scrollHeight - window.innerHeight
     window.onscroll = function () {
         let progressHeight = (window.pageYOffset / totalHeight) * 100;
         progress.style.height = progressHeight + "%"
     }
+
+    //for the tab markers
+    let marker = document.querySelector('#marker')
+    let list = document.querySelectorAll('ul li')
+
+    function moveIndicator(e) {
+        marker.style.left = e.offsetLeft + 'px'
+        marker.style.width = e.offsetWidth+'px'
+    }
+
+    list.forEach(link => {
+        link.addEventListener('mousemove', (e) => {
+            moveIndicator(e.target)
+        })
+    })
+
+    //add active class in hovered list item
+    function activeLink() {
+        list.forEach((item) => {
+            item.classList.remove('active')
+            this.classList.add('active')
+        })
+    }
+    
+    list.forEach((item) => {
+        item.addEventListener('mouseover', activeLink)
+    })
 </script>
 
 </html>
