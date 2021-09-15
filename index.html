@@ -14,12 +14,13 @@
     <div id="progress-bar"></div>
     <div id="scroll-path"></div>
     <header class="header">
-        <h1 class="font-effect-fire-animation">James McArthur</h1>
+        <!-- <h1 class="font-effect-fire-animation">James McArthur</h1> -->
+        <h1 class="font-effect-anaglyph">James McArthur</h1>
 
         <!-- <span class="loader" /> -->
     </header>
     <!-- going to have tabs for projects using glass template, about me, business card downloadable- make downloadable -->
-    <main class="container">
+    <main class="main">
         <ul>
             <li><a href="#">
                     <i class="fas fa-project-diagram"></i>
@@ -35,6 +36,46 @@
             </li>
             <div id="marker"></div>
         </ul>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <div class="name">
+                        <h3>Galactiplanner</h3>
+                    </div>
+                    <div class="tech-stack">
+                        <h5>React | NoSQL | Firebase Authentication</h5>
+                    </div>
+                    <div class="description">
+                        <p>Galactiplanner is a responsive web app that
+                            allows you to take your plans with you everything thanks to Firebase
+                            authentication and data hosting. You can login on your phone or
+                            computer and efficient data entry and planning system will help
+                            keep you organised.</p>
+                    </div>
+                    <div class="image">
+
+                    </div>
+                    <div class="link">
+                        <a href="#"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-me">
+            <h2>About Me</h2>
+            <p>I am a Front End Developer and Engineer who is passionate about
+                software developement and loves to learn. I can tackle any challenge
+                I am confronted with and pride myself on my presentation and design.
+            </p>
+            <p>I love to run, play tennis, and get lost in an fantasy adventure novel.</p>
+            <p class="font-effect-fire-animation">This is my favorite google font effect!</p>
+            <p class="font-effect-neon">And this is my second favorite google font effect :)</p>
+        </section>
+
+        <section id="business-card">
+        </section>
     </main>
 
     <!-- going to have cool buttons with highlighted socials inside -->
@@ -72,7 +113,7 @@
 
     function moveIndicator(e) {
         marker.style.left = e.offsetLeft + 'px'
-        marker.style.width = e.offsetWidth+'px'
+        marker.style.width = e.offsetWidth + 'px'
     }
 
     list.forEach(link => {
@@ -88,7 +129,7 @@
             this.classList.add('active')
         })
     }
-    
+
     list.forEach((item) => {
         item.addEventListener('mouseover', activeLink)
     })

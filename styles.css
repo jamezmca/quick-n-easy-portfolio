@@ -69,27 +69,28 @@ body {
 }
 
 h1 {
-    font-weight: 400;
-    letter-spacing: 5px;
+    font-weight: 700;
+    letter-spacing: 12px;
     text-align: center;
+    font-size: 2.5em;
     /* filter: hue-rotate(120deg); */
-    filter: hue-rotate(50deg);
+    /* filter: hue-rotate(50deg); */
 }
 
 .header {
     position: relative;
     display: grid;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
     place-items: center;
 }
 
-.container {
+.main {
     flex-grow: 1;
     display: grid;
     place-items: center;
 }
 
-.container ul {
+.main ul {
     position: relative;
     display: flex;
     justify-content: center;
@@ -98,11 +99,11 @@ h1 {
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
 }
 
-.container ul li {
+.main ul li {
     list-style: none;
 }
 
-.container ul li a {
+.main ul li a {
     position: relative;
     color: #fff;
     text-decoration: none;
@@ -114,14 +115,14 @@ h1 {
     font-size: 1em;
 }
 
-.container ul li a i {
+.main ul li a i {
     font-size: 2em;
     pointer-events: none;
     opacity: 0.4;
     transition: 0.25s;
 }
 
-.container ul li.active a i {
+.main ul li.active a i {
     opacity: 1;
 }
 
@@ -143,7 +144,7 @@ h1 {
     border-radius: 8px;
 }
 
-.container ul li:nth-child(1).active ~ #marker::before {
+.main ul li:nth-child(1).active ~ #marker::before {
     background: rgb(224, 45, 215);
     box-shadow: 0 0 15px rgb(224, 45, 215),
                 0 0 30px rgb(224, 45, 215),
@@ -151,7 +152,7 @@ h1 {
                 0 0 60px rgb(224, 45, 215);
 }
 
-.container ul li:nth-child(2).active ~ #marker::before {
+.main ul li:nth-child(2).active ~ #marker::before {
     background: rgb(0, 255, 221);
     box-shadow: 0 0 15px rgb(0, 255, 221),
                 0 0 30px rgb(0, 255, 221),
@@ -159,13 +160,93 @@ h1 {
                 0 0 60px rgb(0, 255, 221);
 }
 
-.container ul li:nth-child(3).active ~ #marker::before {
+.main ul li:nth-child(3).active ~ #marker::before {
     background: rgb(178, 245, 54);
     box-shadow: 0 0 15px rgb(178, 245, 54),
                 0 0 30px rgb(178, 245, 54),
                 0 0 45px rgb(178, 245, 54),
                 0 0 60px rgb(178, 245, 54);
 }
+
+/* this is where the tab content goes */
+
+.main section {
+    margin: 10px 0 10px 0;
+}
+
+.main h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main p {
+    margin-bottom: 10px;
+}
+
+.projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.project {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 2em;
+    grid-template-areas: 
+    "name"
+    "tech-stack"
+    "description"
+    "image"
+    "link";
+    z-index: 1;
+    padding: 0 5px 0 5px;
+    max-width: 400px;
+    color: rgb(112, 61, 61);
+    background:rgb(186, 226, 250);
+    border: 5px solid white;
+        /* background: linear-gradient(#E96874, #6E3663, #2B0830);
+    filter: hue-rotate(180deg); */
+}
+
+.name {grid-area: name}
+.tech-stack {grid-area: tech-stack}
+.description {grid-area: description}
+.image {grid-area: image}
+.link {grid-area: link}
+
+@media (min-width: 600px) {
+    .project {
+        grid-template-columns: 2fr 3fr;
+        grid-template-areas:
+        "name name"
+        "tech-stack description"
+        "image description";
+    }
+}
+
+/* .project::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(#E96874, #6E3663, #2B0830);
+    z-index: -1;
+    border-radius: 2px;
+    opacity: 0.7;
+    filter: blur(3px);
+} */
+
+.project p {
+    font-size: 0.85em;
+}
+
+
+
+
+
+
 
 
 
@@ -238,13 +319,27 @@ h1 {
     letter-spacing: 2px;
     color: var(--font-color);
     border: 1px solid rgb(4, 4, 32);
-    background: radial-gradient(rgba(47, 255, 220, 0.678), var(--background-color), var(--background-color))
+    /* background: radial-gradient(rgba(47, 255, 220, 0.678), var(--background-color), var(--background-color)) */
+
 
 }
 
 .footer a span .fab {
     color: white;
     /* text-shadow: 0 0 2px white; */
-    filter: blur(0.5px);
+    text-shadow: 0 0 2px mediumaquamarine,
+    0 0 4px mediumaquamarine,
+    0 0 8px mediumaquamarine,
+    0 0 16px mediumaquamarine;
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate{
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
 }
 
