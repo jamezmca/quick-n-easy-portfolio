@@ -194,7 +194,7 @@ h1 {
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
-    grid-column-gap: 2em;
+    /* grid-column-gap: 2em; */
     grid-template-areas: 
     "name"
     "tech-stack"
@@ -209,11 +209,17 @@ h1 {
     border: 5px solid white;
         /* background: linear-gradient(#E96874, #6E3663, #2B0830);
     filter: hue-rotate(180deg); */
+    margin: 10px;
+}
+
+.project img {
+    max-width: 100%;
+    border-radius: 2px;
 }
 
 .name {grid-area: name}
 .tech-stack {grid-area: tech-stack}
-.description {grid-area: description}
+.description {grid-area: description; margin: 0 0 0 10px}
 .image {grid-area: image}
 .link {grid-area: link}
 
@@ -223,8 +229,21 @@ h1 {
         grid-template-areas:
         "name name"
         "tech-stack description"
-        "image description";
+        "image description"
+        "link link";
+        text-align: center;
     }
+
+}
+
+.project .link a {
+    text-decoration: none;
+    font-size: 0.8em;
+    color: white;
+}
+
+.project .link {
+    text-align: center;
 }
 
 /* .project::before {
