@@ -255,6 +255,10 @@ main #business-card {
     font-size: 0.85em;
 }
 
+#about-me {
+    max-width: 1000px;
+}
+
 #business-card {
     display: flex;
     align-items: center;
