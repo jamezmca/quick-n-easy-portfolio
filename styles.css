@@ -183,6 +183,11 @@ h1 {
     margin-bottom: 10px;
 }
 
+main #projects,
+main #business-card {
+    display: none;
+}
+
 .projects {
     display: flex;
     justify-content: center;
@@ -246,17 +251,6 @@ h1 {
     text-align: center;
 }
 
-/* .project::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    background: linear-gradient(#E96874, #6E3663, #2B0830);
-    z-index: -1;
-    border-radius: 2px;
-    opacity: 0.7;
-    filter: blur(3px);
-} */
-
 .project p {
     font-size: 0.85em;
 }
@@ -274,9 +268,9 @@ h1 {
     text-align: center;
     position: relative;
     border-radius: 1px;
-    margin: 50px 0 50px 0;
+    margin: 100px 0 50px 0;
     z-index: 10;
-    padding: 10px 20px;
+
 }
 
 .function-text {
@@ -284,7 +278,7 @@ h1 {
 }
 
 .card-details {
-    background-color: rgb(36, 26, 26);
+    background-color: rgb(24, 17, 17);
     padding: 5px;
 }
 

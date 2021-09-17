@@ -22,21 +22,21 @@
     <!-- going to have tabs for projects using glass template, about me, business card downloadable- make downloadable -->
     <main class="main">
         <ul>
-            <li><a href="#">
+            <li onmouseover="displayTab(event, 'projects')"><a href="#" onmouseover="displayTab(event, 'projects')">
                     <i class="fas fa-project-diagram"></i>
                 </a>
             </li>
-            <li class="active"><a href="#">
+            <li class="active" onmouseover="displayTab(event, 'about-me')"><a href="#">
                     <i class="fas fa-child"></i></br>
                 </a>
             </li>
-            <li><a href="#">
+            <li onmouseover="displayTab(event, 'business-card')"><a href="#">
                     <i class="far fa-address-card"></i></br>
                 </a>
             </li>
             <div id="marker"></div>
         </ul>
-        <section id="projects">
+        <section id="projects" class="section">
             <h2>Projects</h2>
             <div class="projects">
                 <div class="project">
@@ -107,7 +107,7 @@
             </div>
         </section>
 
-        <section id="about-me">
+        <section id="about-me" class="section">
             <h2>About Me</h2>
             <p>I am a Front End Developer and Engineer who is passionate about
                 software developement and loves to learn. I can tackle any challenge
@@ -118,7 +118,8 @@
             <p class="font-effect-neon">And this is my second favorite google font effect :)</p>
         </section>
 
-        <section id="business-card">
+        <section id="business-card" class="section">
+            <h2>Business Card</h2>
             <div class="card">
                 <span style="--i:0"></span>
                 <span style="--i:1"></span>
@@ -131,30 +132,39 @@
                         <p>{ </p>
                     </div>
                     <div class="function-text mid-text">
-                        <div>
-                            <p class="blue">var</p>
-                            <p class="orange">name</p>
-                            <p class="red">=</p>
-                            <p class=lime>"James McArthur"</p>
-                        </div>
-                        <!-- <div>
-                            <p class="blue">var</p>
-                            <p class="orange">title</p>
-                            <p class="red">=</p>
-                            <p class=lime>"Frontend Developer"</p>
-                        </div>
-                        <div>
-                            <p class="blue">var</p>
-                            <p class="orange">name</p>
-                            <p class="red">=</p>
-                            <p class=lime>"James McArthur"</p>
-                        </div>
-                        <div>
-                            <p class="blue">var</p>
-                            <p class="orange">name</p>
-                            <p class="red">=</p>
-                            <p class=lime>"James McArthur"</p>
-                        </div> -->
+                        <p class="blue">var</p>
+                        <p class="orange">name</p>
+                        <p class="red">=</p>
+                        <p class=lime>"James McArthur"</p>
+
+                    </div>
+                    <div class="function-text mid-text">
+                        <p class="blue">var</p>
+                        <p class="orange">title</p>
+                        <p class="red">=</p>
+                        <p class=lime>"Web Developer"</p>
+
+                    </div>
+                    <div class="function-text mid-text">
+                        <p class="blue">var</p>
+                        <p class="orange">phone</p>
+                        <p class="red">=</p>
+                        <p class=lime>"7786827833"</p>
+
+                    </div>
+                    <div class="function-text mid-text">
+                        <p class="blue">var</p>
+                        <p class="orange">email</p>
+                        <p class="red">=</p>
+                        <p class=lime>"Jamesmca@live.com"</p>
+
+                    </div>
+                    <div class="function-text mid-text">
+                        <p class="blue">var</p>
+                        <p class="orange">url</p>
+                        <p class="red">=</p>
+                        <p class=lime>"www.smoljames.com"</p>
+
                     </div>
                     <div class="function-text">
                         <p>
@@ -191,6 +201,8 @@
     //for the scroll bar
     let progress = document.getElementById('progress-bar')
     let totalHeight = document.body.scrollHeight - window.innerHeight
+    console.log(totalHeight)
+    console.log(totalHeight)
     window.onscroll = function () {
         let progressHeight = (window.pageYOffset / totalHeight) * 100;
         progress.style.height = progressHeight + "%"
@@ -217,6 +229,19 @@
             item.classList.remove('active')
             this.classList.add('active')
         })
+    }
+
+    //add display class to section related to hovered list item
+    function displayTab(event, tabId) {
+        totalHeight = document.body.scrollHeight - window.innerHeight
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("section");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+       
+        document.getElementById(tabId).style.display = "block";
+        event.currentTarget.className += " active";
     }
 
     list.forEach((item) => {
